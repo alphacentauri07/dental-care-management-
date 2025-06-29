@@ -1,46 +1,214 @@
-# Getting Started with Create React App
+# 🦷 Dental Center Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React + TypeScript dashboard built for ENTNT, helping dental practices manage patients, appointments, treatments, and analytics — all with a clean, mobile-first design. For demo purposes, it runs entirely in the browser with localStorage.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+### 🔐 Authentication & Authorization
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Role-based access: Admin (Dentist) & Patient
+* Protected routes & persistent login
+* Seamless session management
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🩺 Admin Panel
 
-### `npm test`
+* Add, edit, and manage patient records
+* Schedule and track appointments (with statuses)
+* Monthly calendar view for quick overview
+* Upload & manage treatment documents, invoices, images
+* Dashboard analytics: KPIs, revenue, patient trends
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 👤 Patient Portal
 
-### `npm run build`
+* View upcoming & past appointments
+* Access and download files & invoices
+* Track personal treatment history
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ⚙️ Technical Highlights
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Fully responsive (Tailwind CSS)
+* State managed via React Context API
+* Client-side form validation
+* File uploads stored as base64/blob URLs
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* React 19 + TypeScript
+* React Router DOM v7
+* Tailwind CSS
+* React Context API
+* date-fns
+* Headless UI & Heroicons
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 📦 Getting Started
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+git clone <repository-url>
+cd dental-center-dashboard
+npm install
+npm start
+```
 
-## Learn More
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔑 Demo Login
+
+| Role    | Email                                   |   Password |
+| ------- | --------------------------------------- | ---------: |
+| Admin   | [admin@entnt.in](mailto:admin@entnt.in) |   admin123 |
+| Patient | [john@entnt.in](mailto:john@entnt.in)   | patient123 |
+
+---
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/         
+│   ├── PatientForm.tsx
+│   └── IncidentForm.tsx
+├── pages/              
+│   ├── Login.tsx
+│   ├── Dashboard.tsx
+│   ├── AdminPanel.tsx
+│   ├── IncidentManagement.tsx
+│   ├── CalendarView.tsx
+│   └── PatientView.tsx
+├── contexts/           
+│   ├── AuthContext.tsx
+│   ├── PatientContext.tsx
+│   └── IncidentContext.tsx
+├── App.tsx             
+└── index.tsx           
+```
+
+---
+
+## 📊 Data Models
+
+### User
+
+```typescript
+interface User {
+  id: string;
+  role: 'Admin' | 'Patient';
+  email: string;
+  password: string;
+  patientId?: string;
+}
+```
+
+### Patient
+
+```typescript
+interface Patient {
+  id: string;
+  name: string;
+  dob: string;
+  contact: string;
+  healthInfo: string;
+}
+```
+
+### Incident (Appointment)
+
+```typescript
+interface Incident {
+  id: string;
+  patientId: string;
+  title: string;
+  description: string;
+  comments: string;
+  appointmentDate: string;
+  cost?: number;
+  status: 'Scheduled' | 'Completed' | 'Cancelled';
+  treatment?: string;
+  nextDate?: string;
+  files: IncidentFile[];
+}
+```
+
+---
+
+## 🌍 Deployment Options
+
+### ✅ Vercel
+
+```bash
+npm run build
+vercel
+```
+
+### ✅ Netlify
+
+* Build: `npm run build`
+* Drag & drop `build/` into Netlify dashboard
+
+### ✅ GitHub Pages
+
+```bash
+npm install --save-dev gh-pages
+# Add "homepage": "https://<username>.github.io/<repo>" in package.json
+npm run build
+npm run deploy
+```
+
+---
+
+## 📱 Responsive Design
+
+Works smoothly on:
+
+* Desktop: sidebar dashboards & analytics
+* Tablet: touch-friendly layout
+* Mobile: stacked cards & simple nav
+
+---
+
+## ⚙️ Dev Scripts
+
+* `npm start` – start dev server
+* `npm run build` – build for production
+* `npm test` – run tests
+* `npm run eject` – eject config
+
+---
+
+## 📈 Extra Highlights
+
+* Multiple file uploads per appointment
+* File previews & downloads
+* Color-coded monthly calendar view
+* Live KPIs & revenue charts
+* Top patients & treatment stats
+
+---
+
+## ⚠️ Notes
+
+* No backend: browser localStorage only
+* Data persists only in your browser
+* Demo build, no external APIs
+
+---
+
+## 📄 License
+
+Built as part of ENTNT technical assignment.
+
+**Deployed App:** \[Your Live Link]
+**GitHub:** \[Your Repository Link]
+
+---
+
+## 🙌 Questions?
+
+For queries, contact: [hr@entnt.in](mailto:hr@entnt.in)
