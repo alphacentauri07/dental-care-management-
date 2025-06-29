@@ -204,8 +204,8 @@ Works smoothly on:
 
 Built as part of ENTNT technical assignment.
 
-**Deployed App:** \[Your Live Link]
-**GitHub:** \[https://github.com/alphacentauri07/dental-care-management-]
+**Deployed App:** \[[Live Link](https://dental-care-management.onrender.com)]
+**GitHub:** \[[Github Link](https://github.com/alphacentauri07/dental-care-management-)]
 
 ---
 
