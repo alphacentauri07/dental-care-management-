@@ -205,10 +205,10 @@ Works smoothly on:
 Built as part of ENTNT technical assignment.
 
 **Deployed App:** \[Your Live Link]
-**GitHub:** \[Your Repository Link]
+**GitHub:** \[https://github.com/alphacentauri07/dental-care-management-]
 
 ---
 
 ## 🙌 Questions?
 
-For queries, contact: [hr@entnt.in](mailto:hr@entnt.in)
+For queries, contact: valay936khobragade@gmail.com
